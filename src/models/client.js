@@ -1,54 +1,46 @@
 const { Schema, model } = require("mongoose");
 
-const activitySchema = new Schema(
+const clientSchema = new Schema(
   {
-    type: {
+    typePerson: {
       type: String,
       enum: ["Pessoa Jurídica", "Pessoa Física"],
     },
     naturalPerson: {
       identificationName: {
         type: String,
-        required: true,
       },
       name: {
         type: String,
-        required: true,
       },
       cpf: {
         type: String,
-        required: true,
       },
       email: {
         type: String,
-        required: true,
       },
       phone: {
         type: String,
-        required: true,
       },
+      required: false,
     },
     legalPerson: {
       tradingName: {
         type: String,
-        required: true,
       },
       companyName: {
         type: String,
-        required: true,
       },
       cnpj: {
         type: String,
-        required: true,
       },
       email: {
         type: String,
-        required: true,
       },
       phone: {
         type: String,
-        required: true,
       },
+      required: false,
     },
     typeAddress: {
       type: String,
@@ -74,17 +66,17 @@ const activitySchema = new Schema(
       type: String,
       required: true,
     },
-    number: {
+    addressNumber: {
       type: String,
       required: true,
     },
     complement: {
       type: String,
-      required: true,
+      required: false,
     },
     reference: {
       type: String,
-      required: true,
+      required: false,
     },
     bank: {
       type: String,
@@ -116,6 +108,6 @@ const activitySchema = new Schema(
   }
 );
 
-const Activity = model("activities", activitySchema);
+const Client = model("client", clientSchema);
 
-module.exports = Activity;
+module.exports = Client;

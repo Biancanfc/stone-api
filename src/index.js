@@ -17,6 +17,8 @@ app.use(
   })
 );
 
+require("./routes/client")(app);
+
 mongoConnection.on("error", console.log).on("disconnected", mongo);
 
 app.listen(config.PORT, () => {
